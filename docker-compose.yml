@@ -15,19 +15,6 @@ services:
       timeout: 5s
       retries: 5
 
-  server-go:
-    container_name: server-go
-    build: 
-      context: .
-      dockerfile: dockerfile.server
-    ports:
-      - 3000:3000
-    depends_on:
-      postgres-go:
-        condition: service_healthy
-    networks:
-      - backend
-
 networks:
   backend:
     name: backend
